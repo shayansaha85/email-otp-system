@@ -23,6 +23,7 @@ git clone https://github.com/shayansaha85/email-otp-system.git
 pip install -r requirements.txt
 ```
 - Update the details in the **config.properties** file
+- For getting the details of SMTP URL see this [article](https://www.arclab.com/en/kb/email/list-of-smtp-and-pop3-servers-mailserver-list.html) by Arclab
 - Make sure to have proper settings in your email client in order to send email with SMTP server with the help of Python
 - Run the **app.py** file with the below command
 
