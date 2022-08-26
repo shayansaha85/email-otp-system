@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verifier</title>
+</head>
+<body>
+    <br><br>
+    <form action="" method="post">
+        Enter OTP : <input type="number" name="otp" id=""><br><br>
+        <input type="submit" name="" value="Submit" id="">
+    </form>
+    <br>
+    {% if outcome|length != 0 %}
+        <h6 style="color: green;">Verification successful</h6>
+    {% endif %}
+</body>
+</html>
