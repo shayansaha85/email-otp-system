@@ -93,4 +93,4 @@ def otpVerification():
     return render_template("otpVerificationPage.html", outcome=outcome)
 
 
-app.run(debug=True, host="0.0.0.0")
+app.run(debug=True, host="0.0.0.0", port=5151)
