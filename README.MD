@@ -14,7 +14,7 @@ This project is created for mimicking the email OTP validation system with the h
 - Clone this repository by running the below command:
 
 ```bash
-git clone https://github.com/shayansaha85/email_otp_system.git
+git clone https://github.com/shayansaha85/email-otp-system.git
 ```
 - Set up *pip* if not done
 - Open Command Prompt/Powershell/Terminal in the repository folder and run the below command to install all the dependencies for running this utility
