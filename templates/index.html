@@ -12,5 +12,9 @@
         Enter email : <input type="email" name="email" id=""><br><br>
         <input type="submit" name="" value="Send OTP" id="">
     </form>
+
+    {% if server_error_msg|length != 0 %}
+        <h4 style="color: red;">Server error &#128528</h4>
+    {% endif %}
 </body>
 </html>

@@ -1,3 +1,4 @@
+from http import server
 from flask import *
 import smtplib, ssl
 import random
@@ -43,7 +44,7 @@ def generate_otp():
 def send_otp(sender_email, sender_password, to_email, smtp_server, otp):
     print("**********DEBUG MESSAGE : send_otp() METHOD STARTED**********")
     port = 465
-    message = """
+    message = """\
     Subject: OTP
 
     Your OTP for verification : {otp}""".format(otp=otp)
@@ -54,12 +55,15 @@ def send_otp(sender_email, sender_password, to_email, smtp_server, otp):
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, to_email, message)
         print("**********DEBUG MESSAGE : EMAIL SENT SUCCESSFULLY**********")
+        return True
     except:
         print("********DEBUG MESSAGE : EMAIL SENDING FAILED********")
+        return False
 
 
 @app.route("/home", methods=["GET", "POST"])
 def index():
+    server_error_msg = ""
     if request.method == "POST":
         to_email = str(request.form.get("email"))
         otp["otp"] = generate_otp()
@@ -67,9 +71,12 @@ def index():
         sender_email = creds["sender_email"]
         sender_password = creds["sender_password"]
         email_server_url = creds["email_server_url"]
-        send_otp(sender_email, sender_password, to_email, email_server_url, otp["otp"])
-        return redirect(url_for("otpVerification"))
-    return render_template("index.html")
+        isDone = send_otp(sender_email, sender_password, to_email, email_server_url, otp["otp"])
+        if isDone:
+            return redirect(url_for("otpVerification"))
+        else:
+            server_error_msg = "not done"
+    return render_template("index.html", server_error_msg=server_error_msg)
 
 
 
@@ -80,9 +87,10 @@ def otpVerification():
         userOTP = str(request.form.get("otp"))
         if userOTP == otp["otp"]:
             outcome = "true"
+        else:
+            outcome = "false"
         print(outcome)
     return render_template("otpVerificationPage.html", outcome=outcome)
-
 
 
 app.run(debug=True, host="0.0.0.0")

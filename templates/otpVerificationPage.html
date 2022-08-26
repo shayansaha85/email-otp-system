@@ -12,9 +12,14 @@
         Enter OTP : <input type="number" name="otp" id=""><br><br>
         <input type="submit" name="" value="Submit" id="">
     </form>
-    <br>
-    {% if outcome|length != 0 %}
-        <h6 style="color: green;">Verification successful</h6>
+    {% if outcome|length == 4 %}
+        <h4 style="color: green;">OTP verification successful &#128516</h4>
+    {% else %}
+        {% if outcome|length == 5 %}
+            <h4 style="color: red;">OTP verification failed &#128531</h4>
+        {% endif %}
     {% endif %}
+
+
 </body>
 </html>
