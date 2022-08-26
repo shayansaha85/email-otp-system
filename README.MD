@@ -2,7 +2,7 @@
 
 **Description**
 --
-This project is created for mimicing the email OTP validation system with the help of Python and Flask framework
+This project is created for mimicking the email OTP validation system with the help of Python and Flask framework
 </br>
 <br/>
 
