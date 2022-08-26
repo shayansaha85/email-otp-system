@@ -20,6 +20,7 @@ git clone https://github.com/shayansaha85/email_otp_system.git
 - Set up *pip* if not done
 - Open Command Prompt/Powershell/Terminal in the repository folder and run the below command to install all the dependencies for running this utility
 </br>
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -27,6 +28,7 @@ pip install -r requirements.txt
 - Make sure to have proper settings in your email client in order to send email with SMTP server with the help of Python
 - Run the **app.py** file with the below command
 </br>
+
 ```bash
 python app.py
 ```
